@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-
 import Layout from './components/Layout';
 import ErrorPage from './components/ErrorPage';
+import Home from './pages/Home';
+import Add from './pages/Add';
 
 import './index.css'
 
@@ -15,7 +16,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <>Hola</>,
+        element: <Home />,
+        errorElement : <ErrorPage />
+      },
+      {
+        path: 'agregar',
+        element: <Add />,
         errorElement : <ErrorPage />
       },
     ],

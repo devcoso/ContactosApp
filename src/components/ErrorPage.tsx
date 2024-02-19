@@ -6,6 +6,8 @@ export default function ErrorPage() {
   if (isRouteErrorResponse(error)) {
     if (error.status === 404) {
         error.statusText = "Página No Encontrada"
+    } else if (error.status === 405) {
+        error.statusText = "Método No Permitido"
     }
     return (
       <div id="error-page" className=" min-h-screen flex flex-col justify-center items-center gap-5">
