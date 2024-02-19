@@ -1,26 +1,32 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useLayoutContext } from "../components/Layout";
 import ErrorComponent from "../components/ErrorComponent";
 
-import generarId from '../helpers/generarId';
-
 import Contact from "../Interfaces/contact"
 
-export default function Add() {
-    const navigate = useNavigate();
-    const { addContacts } = useLayoutContext();
+export function loader({params}: {params: any}) {
+    const contactsStorage = localStorage.getItem('contactos') as string;
+    const contactsArray = JSON.parse(contactsStorage) ?? [] as Array<Contact>;
+    const contact = contactsArray.find((contact : Contact) => contact.id === params.id);
+    if(contact === undefined) throw new Error('Contacto no encontrado');
+    return contact
+}
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [picture, setPicture] = useState('');
-    const [description, setDescription] = useState('');
-    const [facebook, setFacebook] = useState('');
-    const [twitter, setTwitter] = useState('');
-    const [instagram, setInstagram] = useState('');
-    const [github, setGithub] = useState('');
-    const [linkedin, setLinkedin] = useState('');
+export default function Edit() {
+    const contact = useLoaderData() as Contact;
+    const navigate = useNavigate();
+    const { editContacts } = useLayoutContext();
+    const [firstName, setFirstName] = useState(contact.firstName);
+    const [lastName, setLastName] = useState(contact.lastName);
+    const [phoneNumber, setPhoneNumber] = useState(contact.phoneNumber);
+    const [picture, setPicture] = useState(contact.picture);
+    const [description, setDescription] = useState(contact.description);
+    const [facebook, setFacebook] = useState(contact.facebook);
+    const [twitter, setTwitter] = useState(contact.twitter);
+    const [instagram, setInstagram] = useState(contact.instagram);
+    const [github, setGithub] = useState(contact.github);
+    const [linkedin, setLinkedin] = useState(contact.linkedin);
 
     const [error, setError] = useState('');
 
@@ -31,10 +37,8 @@ export default function Add() {
             setError('Los campos de Nombre y Apellido son obligatorios');
             return
         }
-        
-        const id = generarId();
         const newContact: Contact = {
-            id,
+            id: contact.id,
             firstName,
             lastName,
             favorite: false,
@@ -47,14 +51,14 @@ export default function Add() {
             github,
             linkedin,
         }
-        addContacts(newContact);
-        setTimeout(() => {navigate(`/contacto/${id}`)}, 100)
+        editContacts(newContact);
+        setTimeout(() => {navigate(`/contacto/${contact.id}`)}, 100)
     }
 
   return (
     <>
-        <h1 className="font-black text-3xl text-indigo-800 text-center">Nuevo Contácto</h1>
-        <p className="mt-3 text-center">LLena los campos para registrar un nuevo contácto</p>
+        <h1 className="font-black text-3xl text-indigo-800 text-center">Editar Contácto</h1>
+        <p className="mt-3 text-center">Edita los compos del contácto que desees</p>
 
         <div className="bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-10">
             <form>
@@ -213,7 +217,7 @@ export default function Add() {
                     onClick={handleSubmit}
                     type="submit" 
                     className="mt-5 cursor-pointer hover:bg-indigo-900 w-full bg-indigo-800 p-3 uppercase font-bold text-white text-sm" 
-                    value='Registrar Contácto'
+                    value='Editar Contácto'
                 />
             </form>
         </div>

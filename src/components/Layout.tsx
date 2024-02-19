@@ -1,10 +1,11 @@
 import { Outlet, Link, useOutletContext, redirect } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Contact from '../Interfaces/contact';
 
 interface useLayOutContext { 
-    addContact: (contact: Contact) => void;
+    addContacts: (contact: Contact) => void;
+    editContacts: (contact: Contact) => void;
 }
 
 export function useLayoutContext() {
@@ -12,16 +13,25 @@ export function useLayoutContext() {
 }
 
 const Layout = () => {
-    const [contacts, setContacts] = useState<Array<Contact>>([]);
+    const contactsStorage = localStorage.getItem('contactos') as string;
+    const contactsArray = JSON.parse(contactsStorage) ?? [] as Array<Contact>;
+    const [contacts, setContacts] = useState<Array<Contact>>(contactsArray);
 
-    const addContact = (contact: Contact) => {
-        console.log(contact);
+    useEffect(() => { 
+        localStorage.setItem('contactos', JSON.stringify(contacts) ?? [])
+    }, [contacts]);
+
+    const addContacts = (contact: Contact) => {
+        setContacts([...contacts, contact]);
     }
-
+    const editContacts = (contact: Contact) => {
+        const newContacts = contacts.map((c: Contact) => c.id === contact.id ? contact : c);
+        setContacts(newContacts);
+    }
     return (
         <div className="lg:flex lg:flex-row-reverse lg:min-h-screen">   
-            <main className="lg:w-3/4 p-10 lg:h-screen overflow-scroll">
-                    <Outlet context={{addContact : addContact}}></Outlet>
+            <main className="lg:w-3/4 p-2 md:p-10 lg:h-screen overflow-scroll">
+                    <Outlet context={{addContacts, editContacts}}></Outlet>
             </main>
             <aside className='bg-gray-200 px-5 py-10 h-screen flex-shrink-0 lg:w-1/4'>
                 <div className='h-1/4'>
@@ -38,9 +48,13 @@ const Layout = () => {
                     </div>
                 </div>
                 <div className='flex flex-col my-5 h-3/4  overflow-y-scroll no-scrollbar'>
-                    <Link className='py-5 px-2 border-t-2 border-gray-300 hover:bg-gray-100' to='/'>
-                        Adriana López
-                    </Link>
+                    {contacts.length ? contacts.map(contact => (
+                        <Link key={contact.id} className='py-5 px-2 border-t-2 border-gray-300 hover:bg-gray-100' to={`/contacto/${contact.id}`}>
+                            {contact.firstName} {contact.lastName}
+                        </Link>
+                    )) : (
+                        <p className='text-center text-gray-800'>No hay contáctos</p>
+                    )}
                 </div>
             </aside>
         </div>
