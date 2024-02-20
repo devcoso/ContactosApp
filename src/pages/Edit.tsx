@@ -57,8 +57,8 @@ export default function Edit() {
 
   return (
     <>
-        <h1 className="font-black text-3xl text-indigo-800 text-center">Editar Contácto</h1>
-        <p className="mt-3 text-center">Edita los campos del contácto que desees</p>
+        <h1 className="font-black text-3xl text-indigo-800 text-center">Editar Contacto</h1>
+        <p className="mt-3 text-center">Edita los campos del contacto que desees</p>
 
         <div className="bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-10">
             <form>
@@ -71,7 +71,7 @@ export default function Edit() {
                     id="firstName"
                     itemType="text"
                     className="mt-2 block w-full p-3 bg-gray-50"
-                    placeholder="Nombre del Contácto"
+                    placeholder="Nombre del Contacto"
                     name="firstName"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
@@ -84,7 +84,7 @@ export default function Edit() {
                     id="lastName"
                     itemType="text"
                     className="mt-2 block w-full p-3 bg-gray-50"
-                    placeholder="Apellidos del Contácto"
+                    placeholder="Apellidos del Contacto"
                     name="lastName"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
@@ -99,7 +99,7 @@ export default function Edit() {
                         id="phoneNumber"
                         type="tel"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Número del Contácto"
+                        placeholder="Número del Contacto"
                         name="phoneNumber"
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
@@ -109,7 +109,7 @@ export default function Edit() {
                     <label
                         className="text-gray-800"
                         htmlFor="picture"
-                    >Imagen del Contácto:</label>
+                    >Imagen del Contacto:</label>
                     <input 
                         id="picture"
                         itemType="text"
@@ -129,7 +129,7 @@ export default function Edit() {
                         id="facebook"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Usuario de Facebook del Contácto"
+                        placeholder="Usuario de Facebook del Contacto"
                         name="facebook"
                         value={facebook}
                         onChange={(e) => setFacebook(e.target.value)}
@@ -144,7 +144,7 @@ export default function Edit() {
                         id="twitter"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Usuario de Twitter del Contácto"
+                        placeholder="Usuario de Twitter del Contacto"
                         name="twitter"
                         value={twitter}
                         onChange={(e) => setTwitter(e.target.value)}
@@ -159,7 +159,7 @@ export default function Edit() {
                         id="instagram"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Usuario de Instagram del Contácto"
+                        placeholder="Usuario de Instagram del Contacto"
                         name="instagram"
                         value={instagram}
                         onChange={(e) => setInstagram(e.target.value)}
@@ -174,7 +174,7 @@ export default function Edit() {
                         id="github"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Usuario de Github del Contácto"
+                        placeholder="Usuario de Github del Contacto"
                         name="github"
                         value={github}
                         onChange={(e) => setGithub(e.target.value)}
@@ -189,7 +189,7 @@ export default function Edit() {
                         id="linkedin"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Usuario de Linkedin del Contácto"
+                        placeholder="Usuario de Linkedin del Contacto"
                         name="linkedin"
                         value={linkedin}
                         onChange={(e) => setLinkedin(e.target.value)}
@@ -205,7 +205,7 @@ export default function Edit() {
                         id="description"
                         itemType="textarea"
                         className="mt-2 block w-full p-3 bg-gray-50 h-40 align-self"
-                        placeholder="Notas del Contácto"
+                        placeholder="Notas del Contacto"
                         name="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
@@ -216,7 +216,7 @@ export default function Edit() {
                     onClick={handleSubmit}
                     type="submit" 
                     className="mt-5 cursor-pointer hover:bg-indigo-900 w-full bg-indigo-800 p-3 uppercase font-bold text-white text-sm" 
-                    value='Editar Contácto'
+                    value='Editar Contacto'
                 />
             </form>
         </div>
