@@ -1,4 +1,5 @@
 import { useLoaderData, Link } from "react-router-dom";
+import { useLayoutContext } from "../components/Layout";
 
 import Contact from "../Interfaces/contact";
 
@@ -19,7 +20,10 @@ export function loader({params}: {params: any}) {
 
 export default function Contacto() {
     const {id,firstName, lastName, phoneNumber, picture, description, facebook, twitter, instagram, github, linkedin } = useLoaderData() as Contact;
-    
+    const { deleteContact } = useLayoutContext();
+    const handleEliminar = (id: string) => { 
+        confirm('¿Estás seguro de eliminar este contacto?') && deleteContact(id);
+    }
 
   return (
     <div className="p-10">
@@ -32,7 +36,7 @@ export default function Contacto() {
                 {phoneNumber?.length ? <p className="text-xl text-gray-700">Teléfono: <span className="text-gray-800 font-bold">{phoneNumber}</span></p> : <></>}
                 <div>
                     {facebook?.length || twitter?.length || instagram?.length || github?.length || linkedin?.length ? <h3 className="text-xl text-gray-700">Redes Sociales:</h3> : <></>}
-                    <div className="grid grid-cols-3 gap-3 lg:grid-cols-5 lg:w-2/3">
+                    <div className="grid grid-cols-3 gap-3 lg:grid-cols-5 lg:w-2/3 items-center">
                         {facebook?.length ? <a className="w-10 h-10" href={`https://www.facebook.com/${facebook}`} target="blank"><img className="w-full" src={facebookIcon} alt="Icono Facebook"/></a> : <></>}
                         {twitter?.length ? <a className="w-10 h-10" href={`https://www.x.com/${twitter}`} target="blank"><img className="w-full" src={twitterIcon} alt="Icono Twitter" /></a> : <></>}
                         {instagram?.length ? <a className="w-10 h-10" href={`https://www.instagram.com/${instagram}`} target="blank"><img className="w-full" src={instagramIcon} alt="Icono Instagram" /></a> : <></>}
@@ -42,7 +46,7 @@ export default function Contacto() {
                 </div>
                 <div className=" flex md:justify-start justify-center gap-2">
                     <Link className="py-2 px-8 bg-blue-800 text-white hover:bg-blue-900 shadow-md" to={`/editar/${id}`}>Editar</Link>
-                    <button className="py-2 px-8 bg-red-800 text-white hover:bg-red-900 shadow-md">Eliminar</button>
+                    <button onClick={() => {handleEliminar(String(id))}} className="py-2 px-8 bg-red-800 text-white hover:bg-red-900 shadow-md">Eliminar</button>
                 </div>
             </div>
         </div>

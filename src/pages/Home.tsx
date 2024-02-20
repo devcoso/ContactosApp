@@ -9,7 +9,6 @@ export default function Home() {
         <p> Está aplicación te permite guardar:</p>
         <ul className="text-indigo-800 font-semibold">
           <li>Nombres</li>
-          <li>Correos electrónicos</li>
           <li>Número de teléfono</li>
           <li>Redes sociales</li>
           <li>Y más</li>
