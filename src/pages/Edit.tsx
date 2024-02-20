@@ -69,7 +69,7 @@ export default function Edit() {
                 >*Nombre:</label>
                 <input 
                     id="firstName"
-                    type="text"
+                    itemType="text"
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Nombre del Contácto"
                     name="firstName"
@@ -82,7 +82,7 @@ export default function Edit() {
                 >*Apellido:</label>
                 <input 
                     id="lastName"
-                    type="text"
+                    itemType="text"
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Apellidos del Contácto"
                     name="lastName"
@@ -112,7 +112,7 @@ export default function Edit() {
                     >URL de Imagen:</label>
                     <input 
                         id="picture"
-                        type="text"
+                        itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Imagen del Contácto"
                         name="picture"
@@ -127,7 +127,7 @@ export default function Edit() {
                     >Facebook:</label>
                     <input 
                         id="facebook"
-                        type="text"
+                        itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Usuario de Facebook del Contácto"
                         name="facebook"
@@ -142,7 +142,7 @@ export default function Edit() {
                     >Twitter:</label>
                     <input 
                         id="twitter"
-                        type="text"
+                        itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Usuario de Twitter del Contácto"
                         name="twitter"
@@ -157,7 +157,7 @@ export default function Edit() {
                     >Instagram:</label>
                     <input 
                         id="instagram"
-                        type="text"
+                        itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Usuario de Instagram del Contácto"
                         name="instagram"
@@ -172,7 +172,7 @@ export default function Edit() {
                     >Github:</label>
                     <input 
                         id="github"
-                        type="text"
+                        itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Usuario de Github del Contácto"
                         name="github"
@@ -187,7 +187,7 @@ export default function Edit() {
                     >Linekdin:</label>
                     <input 
                         id="linkedin"
-                        type="text"
+                        itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Usuario de Linekdin del Contácto"
                         name="linkedin"
@@ -202,9 +202,8 @@ export default function Edit() {
                         htmlFor="description"
                     >Descripción:</label>
                     <textarea
-                        as="textarea"
                         id="description"
-                        type="text"
+                        itemType="textarea"
                         className="mt-2 block w-full p-3 bg-gray-50 h-40 align-self"
                         placeholder="Notas del Contácto"
                         name="description"
