@@ -54,7 +54,7 @@ export default function Add() {
   return (
     <>
         <h1 className="font-black text-3xl text-indigo-800 text-center">Nuevo Contácto</h1>
-        <p className="mt-3 text-center">LLena los campos para registrar un nuevo contácto</p>
+        <p className="mt-3 text-center">Llena los campos para registrar un nuevo contácto</p>
 
         <div className="bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-10">
             <form>
@@ -80,7 +80,7 @@ export default function Add() {
                     id="lastName"
                     itemType="text"
                     className="mt-2 block w-full p-3 bg-gray-50"
-                    placeholder="Apellidos del Contácto"
+                    placeholder="Apellido del Contácto"
                     name="lastName"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
@@ -105,12 +105,12 @@ export default function Add() {
                     <label
                         className="text-gray-800"
                         htmlFor="picture"
-                    >URL de Imagen:</label>
+                    >Imagen del Contácto:</label>
                     <input 
                         id="picture"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Imagen del Contácto"
+                        placeholder="URL de la Imagen"
                         name="picture"
                         value={picture}
                         onChange={(e) => setPicture(e.target.value)}
@@ -180,12 +180,12 @@ export default function Add() {
                     <label
                         className="text-gray-800"
                         htmlFor="linkedin"
-                    >Linekdin:</label>
+                    >Linkedin:</label>
                     <input 
                         id="linkedin"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Usuario de Linekdin del Contácto"
+                        placeholder="Usuario de Linkedin del Contácto"
                         name="linkedin"
                         value={linkedin}
                         onChange={(e) => setLinkedin(e.target.value)}
@@ -212,7 +212,7 @@ export default function Add() {
                     onClick={handleSubmit}
                     type="submit" 
                     className="mt-5 cursor-pointer hover:bg-indigo-900 w-full bg-indigo-800 p-3 uppercase font-bold text-white text-sm" 
-                    value='Registrar Contácto'
+                    value='Añadir Contácto'
                 />
             </form>
         </div>

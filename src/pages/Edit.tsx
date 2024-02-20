@@ -58,7 +58,7 @@ export default function Edit() {
   return (
     <>
         <h1 className="font-black text-3xl text-indigo-800 text-center">Editar Contácto</h1>
-        <p className="mt-3 text-center">Edita los compos del contácto que desees</p>
+        <p className="mt-3 text-center">Edita los campos del contácto que desees</p>
 
         <div className="bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-10">
             <form>
@@ -109,12 +109,12 @@ export default function Edit() {
                     <label
                         className="text-gray-800"
                         htmlFor="picture"
-                    >URL de Imagen:</label>
+                    >Imagen del Contácto:</label>
                     <input 
                         id="picture"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Imagen del Contácto"
+                        placeholder="URL de la Imagen"
                         name="picture"
                         value={picture}
                         onChange={(e) => setPicture(e.target.value)}
@@ -184,12 +184,12 @@ export default function Edit() {
                     <label
                         className="text-gray-800"
                         htmlFor="linkedin"
-                    >Linekdin:</label>
+                    >Linkedin:</label>
                     <input 
                         id="linkedin"
                         itemType="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
-                        placeholder="Usuario de Linekdin del Contácto"
+                        placeholder="Usuario de Linkedin del Contácto"
                         name="linkedin"
                         value={linkedin}
                         onChange={(e) => setLinkedin(e.target.value)}
