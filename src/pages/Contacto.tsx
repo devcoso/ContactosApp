@@ -27,16 +27,16 @@ export default function Contacto() {
 
   return (
     <div className="p-10">
-        <div className="md:flex md:gap-2 justify-center">
-            <div className="lg:w-1/3">
+        <div className="lg:flex lg:gap-2 justify-center">
+            <div className="xl:w-1/3">
                 <img src={picture?.length ? picture : imagen} className="h-36 w-36 md:w-40 md:h-40 lg:w-72 lg:h-72 object-cover object-center m-auto rounded-full"/>
             </div>
-            <div className="lg:w-1/2 md:1/3 space-y-10">
-                <h3 className="text-indigo-800 text-2xl md:text-4xl font-bold">{`${firstName} ${lastName}`}</h3>
+            <div className="xl:w-1/2 md:1/3 space-y-10">
+                <h3 className="text-indigo-800 text-2xl md:text-4xl font-bold text-center xl:text-left">{`${firstName} ${lastName}`}</h3>
                 {phoneNumber?.length ? <p className="text-xl text-gray-700">Teléfono: <span className="text-gray-800 font-bold">{phoneNumber}</span></p> : <></>}
                 <div>
                     {facebook?.length || twitter?.length || instagram?.length || github?.length || linkedin?.length ? <h3 className="text-xl text-gray-700">Redes Sociales:</h3> : <></>}
-                    <div className="grid grid-cols-3 gap-3 lg:grid-cols-5 lg:w-2/3 items-center">
+                    <div className="grid grid-cols-3 gap-3 xl:grid-cols-5 lg:w-2/3 items-center">
                         {facebook?.length ? <a className="w-10 h-10" href={`https://www.facebook.com/${facebook}`} target="blank"><img className="w-full" src={facebookIcon} alt="Icono Facebook"/></a> : <></>}
                         {twitter?.length ? <a className="w-10 h-10" href={`https://www.x.com/${twitter}`} target="blank"><img className="w-full" src={twitterIcon} alt="Icono Twitter" /></a> : <></>}
                         {instagram?.length ? <a className="w-10 h-10" href={`https://www.instagram.com/${instagram}`} target="blank"><img className="w-full" src={instagramIcon} alt="Icono Instagram" /></a> : <></>}
