@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center h-full gap-4">
+    <div className="flex flex-col justify-center items-center h-full gap-4 my-10 xl:m-0">
       <h1 className=" text-center text-3xl font-bold text-gray-800">Bienvenido a Contactos<span className="text-indigo-800">App</span></h1>
       <div className="text-gray-800 text-center text-lg">
         <p>Encuentra a la persona que necesitas al instante con una aplicación útil y cómoda.</p>
