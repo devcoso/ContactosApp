@@ -38,11 +38,18 @@ const Layout = () => {
             } else {
               return a.firstName.localeCompare(b.firstName);
             }
-          });
+        });
         setContacts(newContacts);
     }
     const editContacts = (contact: Contact) => {
         const newContacts = contacts.map((c: Contact) => c.id === contact.id ? contact : c);
+        newContacts.sort((a, b) => {
+            if (a.firstName === b.firstName) {
+              return a.lastName.localeCompare(b.lastName);
+            } else {
+              return a.firstName.localeCompare(b.firstName);
+            }
+          });
         setContacts(newContacts);
     }
     const deleteContact = (id: string) => {
