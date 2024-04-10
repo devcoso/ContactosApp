@@ -16,6 +16,7 @@ export default function Home() {
       </div>
      
       <p className="text-gray-800 text-lg">Añade nuevos Contactos <Link className="text-indigo-800 underline" to="/agregar">aquí</Link></p>
+      <p className="text-gray-800 text-lg">Creada por <a href="https://github.com/devcoso" target="_blank" className="text-indigo-800 underline">@devcoso</a></p>
     </div>
   )
 }
