@@ -6,7 +6,7 @@ export default function Home() {
       <h1 className=" text-center text-3xl font-bold text-gray-800">Bienvenido a Contactos<span className="text-indigo-800">App</span></h1>
       <div className="text-gray-800 text-center text-lg">
         <p>Encuentra a la persona que necesitas al instante con una aplicación útil y cómoda.</p>
-        <p> Está aplicación te permite guardar:</p>
+        <p> Esta aplicación te permite guardar:</p>
         <ul className="text-indigo-800 font-semibold">
           <li>Nombres</li>
           <li>Número de teléfono</li>

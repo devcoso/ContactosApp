@@ -83,9 +83,9 @@ const Layout = () => {
     }, [search]);
 
     return (
-        <div className="xl:flex xl:min-h-screen">   
-            <aside className='bg-gray-200 px-5 py-10 h-auto xl:h-screen flex-shrink-0 xl:w-1/4'>
-                <div className='xl:h-1/4'>
+        <div className="xl:flex xl:h-screen">   
+            <aside className='bg-gray-200 px-5 py-10 h-full xl:h-screen xl:w-1/4 flex flex-col'>
+                <div className=''>
                     <Link to="/"><h1 className='text-2xl md:text-3xl lg:text-3xl text-center lg:my-2 font-bold text-gray-800'>Contactos<span className='text-indigo-800'>App</span></h1></Link>
                     <Link to="/agregar"  className={`block w-2/3 text-center m-auto my-4 py-2 hover:bg-indigo-950 text-gray-100 uppercase font-bold text-xs md:text-sm ${location.pathname === "/agregar" ? 'bg-indigo-950' : 'bg-indigo-800'}`}>Agregar Contacto</Link>
                     <div className="mx-auto">   
@@ -103,7 +103,7 @@ const Layout = () => {
                     </div>
                 </div>
                 
-                <div className='flex flex-col max-h-44 xl:max-h-full xl:h-3/4 overflow-y-scroll xl:no-scrollbar'>
+                <div className='max-h-44 xl:max-h-full max overflow-y-scroll no-scrollbar'>
                     {showContacts.length ? showContacts.map(contact => (
                         <Link key={contact.id} className={`flex relative py-5 px-2 border-t-2 hover:bg-gray-100 border-gray-300 ${location.pathname.slice(10) === contact.id && 'bg-gray-100'} `} to={`/contacto/${contact.id}`}>
                             {contact.firstName} {contact.lastName}
